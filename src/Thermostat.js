@@ -1,5 +1,6 @@
-function Thermostat(current_temp = 20) {
+function Thermostat(current_temp = 20, minimum_temp = 10) {
   this.current_temp = current_temp;
+  this.minimum_temp = minimum_temp;
 }
 
 Thermostat.prototype.up = function() {

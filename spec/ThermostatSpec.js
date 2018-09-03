@@ -7,6 +7,10 @@ describe('Thermostat', function() {
     expect(thermostat.current_temp).toEqual(20);
   });
 
+  it('has a minimum temperature of 10 degrees by default', function() {
+    expect(thermostat.minimum_temp).toEqual(10);
+  });
+
   describe('up()', function() {
     it('increases the temperature by 1', function() {
       var initialTemp = thermostat.current_temp
