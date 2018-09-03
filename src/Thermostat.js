@@ -1,12 +1,21 @@
-function Thermostat(current_temp = 20, minimum_temp = 10) {
-  this.current_temp = current_temp;
-  this.minimum_temp = minimum_temp;
+function Thermostat(currentTemp = 20, minimumTemp = 10) {
+  this.currentTemp = currentTemp;
+  this.minimumTemp = minimumTemp;
+  this.powerSaving = true;
 }
 
 Thermostat.prototype.up = function() {
-  this.current_temp ++;
+  this.currentTemp ++;
 }
 
 Thermostat.prototype.down = function() {
-  this.current_temp --;
+  this.currentTemp --;
+}
+
+Thermostat.prototype.powerSavingOn = function() {
+  this.powerSaving = true;
+}
+
+Thermostat.prototype.powerSavingOff = function() {
+  this.powerSaving = false;
 }
