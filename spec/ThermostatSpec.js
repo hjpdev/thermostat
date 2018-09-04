@@ -43,6 +43,41 @@ describe('Thermostat', function() {
     it('can be turned on', function() {
       thermostat.powerSavingOn();
       expect(thermostat.powerSaving).toEqual(true)
+    });
+
+    it('sets the max temp to 25 when on', function() {
+      thermostat.powerSavingOn();
+      expect(thermostat.maxTemp).toEqual(25);
+    });
+
+    it('sets the max temp to 32 when off', function() {
+      thermostat.powerSavingOff();
+      expect(thermostat.maxTemp).toEqual(32);
+    });
+  });
+
+  describe('reset()', function() {
+    it('resets the temperature to 20', function() {
+      thermostat.up();
+      thermostat.reset();
+      expect(thermostat.currentTemp).toEqual(20);
+    });
+  });
+
+  describe('energyUsage()', function() {
+    it('returns low when currentTemp is below 18', function() {
+      thermostat.currentTemp = 10;
+      expect(thermostat.energyUsage()).toEqual('low');
+    });
+
+    it('returns medium when currentTemp is below 25', function() {
+      thermostat.currentTemp = 22;
+      expect(thermostat.energyUsage()).toEqual('medium');
+    });
+
+    it('returns high when currentTemp is 25 & above', function() {
+      thermostat.currentTemp = 30;
+      expect(thermostat.energyUsage()).toEqual('high');
     })
   });
 });
