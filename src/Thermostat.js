@@ -1,8 +1,10 @@
-function Thermostat(currentTemp = 20) {
-  this.currentTemp = currentTemp;
+function Thermostat() {
+  this.DEFAULT_TEMP = 20
+  this.currentTemp = this.DEFAULT_TEMP;
   this.MIN_TEMP = 10;
   this.powerSaving = true;
-  this.maxTemp = 25;
+  this.MAX_TEMP = 25;
+  this.MED_ENERGY_lIMIT = 18;
 }
 
 Thermostat.prototype.up = function() {
@@ -23,22 +25,22 @@ Thermostat.prototype.isPowerSaving = function() {
 
 Thermostat.prototype.powerSavingOn = function() {
   this.powerSaving = true;
-  this.maxTemp = 25;
+  this.MAX_TEMP = 25;
 }
 
 Thermostat.prototype.powerSavingOff = function() {
   this.powerSaving = false;
-  this.maxTemp = 32;
+  this.MAX_TEMP = 32;
 }
 
 Thermostat.prototype.reset = function() {
-  this.currentTemp = 20;
+  this.currentTemp = this.DEFAULT_TEMP;
 }
 
 Thermostat.prototype.energyUsage = function() {
-  if (this.currentTemp < 18)
+  if (this.currentTemp < this.MED_ENERGY_lIMIT)
     return 'low'
-  else if (this.currentTemp < 25)
+  else if (this.currentTemp < this.MAX_TEMP)
     return 'medium'
   else
     return 'high'

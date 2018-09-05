@@ -56,12 +56,12 @@ describe('Thermostat', function() {
 
     it('sets the max temp to 25 when on', function() {
       thermostat.powerSavingOn();
-      expect(thermostat.maxTemp).toEqual(25);
+      expect(thermostat.MAX_TEMP).toEqual(25);
     });
 
     it('sets the max temp to 32 when off', function() {
       thermostat.powerSavingOff();
-      expect(thermostat.maxTemp).toEqual(32);
+      expect(thermostat.MAX_TEMP).toEqual(32);
     });
   });
 
