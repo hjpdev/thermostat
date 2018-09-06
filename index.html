@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Thermostat</title>
+    <style>
+      a.test {
+        font-weight: bold;
+        }
+    </style>
+  </head>
+  <body>
+    <section>
+      <h1 id="temperature"></h1>
+      <p>
+        <button id="up">+</button>
+        <button id="down">-</button>
+        <button id="reset">reset</button>
+        power saving mode is <span id="ps-status">on</span>
+        <button id="ps-on">PSM on</button>
+        <button id="ps-off">PSM off</button>
+      </p>
+    </section>
+    <a href="google.com">googy</a>
+    <br><br><br>
+    <script src="./public/thermostat.js"></script>
+    <script src="../jquery.min.js"></script>
+    <script>
+      $( "a" ).addClass( "test" );
+
+        $(document).ready(function() {
+          var th = new Thermostat();
+          $('#temperature').text(th.currentTemp);
+
+          $('#up').on('click', function() {
+            th.up();
+            updateTemperature();
+          })
+
+          $('#down').on('click', function() {
+            th.down();
+            updateTemperature();
+          })
+
+          $('#reset').on('click', function() {
+            th.reset();
+            updateTemperature();
+          })
+
+          $('#ps-on').on('click', function() {
+            th.powerSavingOn();
+            updateTemperature();
+          })
+
+          $('#ps-off').on('click', function() {
+            th.powerSavingOff();
+          })
+
+          function updateTemperature() {
+            $('#temperature').text(th.currentTemp);
+            if(th.energyUsage() === 'low') {
+              $('#temperature').css('color', 'green')
+            } else if(th.energyUsage() === 'medium') {
+              $('#temperature').css('color', 'black')
+            } else {
+              $('#temperature').css('color', 'red')
+            }
+          };
+        });
+
+        $( "a" ).click(function( event ) {
+          event.preventDefault();
+          $( this ).hide( "slow" );
+          });
+    </script>
+  </body>
+</html>

@@ -1,7 +1,7 @@
 'use strict;'
 
 describe('Thermostat', function() {
-  var thermostat = new Thermostat
+  var thermostat = new Thermostat()
 
   it('has a current temperature of 20 by default', function() {
     th = new Thermostat()
@@ -52,6 +52,14 @@ describe('Thermostat', function() {
     it('can be turned on', function() {
       thermostat.powerSavingOn();
       expect(thermostat.isPowerSaving()).toEqual(true)
+    });
+
+    it('reduces the temp if required', function() {
+      th = new Thermostat();
+      th.powerSavingOff();
+      th.currentTemp = 32;
+      th.powerSavingOn();
+      expect(th.currentTemp).toEqual(25);
     });
 
     it('sets the max temp to 25 when on', function() {
