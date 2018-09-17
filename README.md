@@ -2,7 +2,7 @@
 Makers week 5 - Practice using JS
 
 
-##Specification:
+## Specification:
 
 - Thermostat starts at 20 degrees
 - You can increase the temperature with an up function
@@ -15,6 +15,6 @@ Makers week 5 - Practice using JS
 - You can ask about the thermostat's current energy usage: < 18 is low-usage, < 25 is medium-usage, anything else is high-usage.
 (In the challenges where we add an interface, low-usage will be indicated with green, medium-usage indicated with black, high-usage indicated with red.)
 
-###Learning Objectives covered
+### Learning Objectives covered
 
 - Use Jasmine to Test-Drive Development of a thermostat
